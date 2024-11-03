@@ -8,3 +8,4 @@ get_product_info()  # Получаем данные о всех товарах
 driver.quit()  # Закрываем драйвер
 
 pyexcel.save_as(records=products_data, dest_file_name='products.xlsx')  # Сохраняем результат в xlsx
+print('Результат сохранён в файл products.xlsx')

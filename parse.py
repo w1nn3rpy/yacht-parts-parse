@@ -1,4 +1,5 @@
 import re
+import time
 
 from bs4 import BeautifulSoup
 import requests
@@ -30,7 +31,7 @@ def get_all_categories_links():
     if response.status_code == 200:
 
         soup = BeautifulSoup(response.text, 'html.parser')
-
+        print('Поиск категорий')
         last_level_categories = set(
             site.rstrip('/') + link['href']
             for link in soup.find_all('a', href=True)
@@ -133,6 +134,7 @@ def get_product_info():
                 '7. Photos': ", ".join(photos if True else one_photo)
             }
             products_data.append(result)
+    print('Обрабротка товаров завершена.')
 
 
 if __name__ == '__main__':
